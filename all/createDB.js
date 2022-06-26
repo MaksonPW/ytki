@@ -1,5 +1,5 @@
 var mongoose = require("mongoose");
-mongoose.connect("mongodb://localhost/cars");
+mongoose.connect("mongodb://localhost/ytki");
 var async = require("async");
 var data = require("./data.js").data;
 

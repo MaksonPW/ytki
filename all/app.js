@@ -4,7 +4,7 @@ var path = require("path");
 var cookieParser = require("cookie-parser");
 var logger = require("morgan");
 var mongoose = require("mongoose");
-mongoose.connect("mongodb://localhost/cars");
+mongoose.connect("mongodb://localhost/ytki");
 var session = require("express-session");
 var Hero = require("./models/hero").Hero;
 
@@ -30,9 +30,9 @@ app.use(express.static(path.join(__dirname, "bower_components")));
 var MongoStore = require("connect-mongo");
 app.use(
     session({
-        secret: "TheCars",
+        secret: "TheYtki",
         cookie: { maxAge: 60 * 1000 },
-        store: MongoStore.create({ mongoUrl: "mongodb://localhost/cars" }),
+        store: MongoStore.create({ mongoUrl: "mongodb://localhost/ytki" }),
     })
 );
 
@@ -61,6 +61,7 @@ app.use("/heroes", heroesRouter);
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
     next(createError(404));
+    return
 });
 
 // error handler
